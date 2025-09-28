@@ -1,5 +1,20 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
 
+:root {
+  --gold-500: hsl(39, 89%, 49%);
+  --gold-600: hsl(28, 76%, 44%);
+  --blue-500: hsl(230, 89%, 62%);
+  --blue-700: hsl(229, 64%, 46%);
+  --red-600: hsl(349, 71%, 52%);
+  --red-800: hsl(347, 75%, 35%);
+  --purple-600: hsl(261, 73%, 60%);
+  --purple-700: hsl(261, 51%, 44%);
+  --light-blue-400: hsl(189, 59%, 53%);
+  --light-blue-500: hsl(194, 58%, 42%);
+  --navy-900: hsl(229, 25%, 31%);
+  --gray-600: hsl(246, 11%, 37%);
+
+  --background: radial-gradient(ellipse at top, hsl(214, 47%, 23%), hsl(237, 48%, 15%));
 }
 
 #root {
@@ -9,4 +24,14 @@
 body {
   margin: 0;
   height: 100dvh;
+  background: var(--background);
+  font-family: 'Barlow Semi Condensed';
 }
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
