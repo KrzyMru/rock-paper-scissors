@@ -1,0 +1,126 @@
+.results {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 0px;
+        justify-content: space-around;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
+
+.participant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    min-width: 230px;
+    @media screen and (max-width: 768px) {
+        margin-bottom: 60px;
+        min-width: 180px;
+        gap: 28px;
+    }
+}
+.participant--player {
+    order: 1;
+}
+.participant--house {
+    order: 3;
+    @media screen and (max-width: 1020px) {
+        order: 2;
+    }
+}
+.participant__text {
+    order: 1;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    @media screen and (max-width: 768px) {
+        order: 2;
+        font-size: 16px;
+    }
+}
+.participant__placeholder {
+    padding: 77px;
+    border-radius: 100%;
+    background-color: hsl(237, 36%, 19%);
+    margin-top: 32px;
+    margin-left: 32px;
+    margin-right: 32px;
+    @media screen and (max-width: 768px) {
+        padding: 53px;
+        margin-top: 16px;
+    }
+}
+
+.shape__container--house {
+    opacity: 0;
+    animation: fadeIn 1.15s ease-out forwards;
+}
+
+.result {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    max-width: 0;
+    transition: max-width 1s ease;
+    pointer-events: none;
+    @media screen and (max-width: 371px) {
+        margin-bottom: 150px;
+    }
+    @media screen and (max-width: 768px) {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.result--visible {
+    max-width: 300px;
+    animation: fadeIn 1.5s ease-out forwards;
+    pointer-events: initial;
+}
+.result__text {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+.result__button {
+    border: none;
+    border-radius: 12px;
+    background-color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 72px;
+    padding-right: 72px;
+    color: var(--navy-900);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    &:hover {
+        cursor: pointer;
+        color: var(--red-600);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

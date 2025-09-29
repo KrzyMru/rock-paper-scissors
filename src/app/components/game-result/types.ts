@@ -7,6 +7,6 @@ interface GameResultProps {
     onGameLose: () => void,
 }
 
-type GameResult = 'win' | 'loss' | 'tie';
+type GameResultType = 'win' | 'loss' | 'tie';
 
-export type { GameResultProps, GameResult }
+export type { GameResultProps, GameResultType }

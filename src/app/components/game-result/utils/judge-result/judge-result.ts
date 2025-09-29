@@ -1,7 +1,7 @@
 import type { Shape } from "../../../../types";
-import type { GameResult } from "../../types";
+import type { GameResultType } from "../../types";
 
-const judgeResult = (player: Shape, house: Shape): GameResult => {
+const judgeResult = (player: Shape, house: Shape): GameResultType => {
     if(player === house)
         return 'tie';
 

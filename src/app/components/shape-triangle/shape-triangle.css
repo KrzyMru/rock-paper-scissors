@@ -1,37 +1,30 @@
 .shapes {
-    background-image: url('../../../assets/images/bg-triangle.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-clip: content-box;
-    background-origin: content-box;
-    height: 444px;
-    width: 500px;
-    padding-top: 108px;
-    padding-bottom: 56px;
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-top: 64px;
     position: relative;
-    @media screen and (max-width: 536px) {
-        height: 250px;
-        width: 250px;
-        padding-top: 56px;
-        padding-bottom: 0px;
-        padding-left: 40px;
-        padding-right: 40px;
+    aspect-ratio: 313/278;
+    width: 550px;
+    margin-top: 80px;
+    position: relative;
+    @media screen and (max-width: 375px) {
+        width: 100%;
+        margin-top: 60px;
     }
-    @media screen and (min-width: 536px) and (max-width: 768px) {
-        height: 380px;
-        width: 380px;
-        padding-top: 80px;
-        padding-bottom: 12px;
-        padding-left: 64px;
-        padding-right: 64px;
+    @media screen and (min-width: 375px) and (max-width: 768px) {
+        width: 350px;
+        margin-top: 60px;
     }
 }
-.shape__container {
-    padding: 32px;
-    border-radius: 100%;
+.shapes__background {
+    position: absolute;
+    margin: 80px;
+    inset: 0;
+    background-image: url('../../../assets/images/bg-triangle.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    @media screen and (max-width: 768px) {
+        margin: 65px;
+    }
+}
+.shape__button {
     border: none;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     &:hover {
@@ -41,24 +34,34 @@
         box-shadow: none;
         transform: translate(0px, 8px);
     }
-    @media screen and (max-width: 536px) {
+}
+.shape__container {
+    padding: 24px;
+    border-radius: 100%;
+    @media screen and (max-width: 768px) {
         padding: 16px;
-    }
-    @media screen and (min-width: 536px) and (max-width: 768px) {
-        padding: 24px;
     }
 }
 .shape__container--blue {
     background-color: var(--blue-500);
-    box-shadow: 0px 8px var(--blue-700);
+    box-shadow: 0px 12px var(--blue-700);
+    @media screen and (max-width: 768px) {
+        box-shadow: 0px 8px var(--blue-700);
+    }
 }
 .shape__container--gold {
     background-color: var(--gold-500);
-    box-shadow: 0px 8px var(--gold-600);
+    box-shadow: 0px 12px var(--gold-600);
+    @media screen and (max-width: 768px) {
+        box-shadow: 0px 8px var(--gold-600);
+    }
 }
 .shape__container--red {
     background-color: var(--red-600);
-    box-shadow: 0px 8px var(--red-800);
+    box-shadow: 0px 12px var(--red-800);
+    @media screen and (max-width: 768px) {
+        box-shadow: 0px 8px var(--red-800);
+    }
 }
 .shape__container--top-left {
     position: absolute;
@@ -80,27 +83,21 @@
     }
 }
 .shape__background {
-    padding: 52px;
+    padding: 42px;
     border-radius: 100%;
     overflow: hidden;
     background-color: white;
-    box-shadow: 0px -6px rgb(177, 177, 177);
-    @media screen and (max-width: 536px) {
-        padding: 24px;
-    }
-    @media screen and (min-width: 536px) and (max-width: 768px) {
-        padding: 36px;
+    box-shadow: 0px -8px rgb(189, 189, 189);
+    @media screen and (max-width: 768px) {
+        padding: 28px;
+        box-shadow: 0px -3px rgb(189, 189, 189);
     }
 }
 .shape__logo {
-    height: 80px;
-    width: 80px;
-    @media screen and (max-width: 536px) {
-        height: 40px;
-        width: 40px;
-    }
-    @media screen and (min-width: 536px) and (max-width: 768px) {
-        height: 60px;
-        width: 60px;
+    height: 60px;
+    width: 60px;
+    @media screen and (max-width: 768px) {
+        height: 50px;
+        width: 50px;
     }
 }
