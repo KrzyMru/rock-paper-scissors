@@ -1,10 +1,38 @@
 import './app.css';
 import Logo from '../assets/images/logo.svg';
-import Rock from '../assets/images/icon-rock.svg';
-import Paper from '../assets/images/icon-paper.svg';
-import Scissors from '../assets/images/icon-scissors.svg';
+import ShapeTriangle from './components/shape-triangle/shape-triangle';
+import { useEffect, useState } from 'react';
+import type { Shape } from './types';
+import GameResult from './components/game-result/game-result';
 
 const App = () => {
+  const [shape, setShape] = useState<Shape|null>(null);
+  const [score, setScore] = useState<number>(() => {
+    try {
+      const score = localStorage.getItem('score');
+      return score ? Number(score) : 0;
+    } catch (e: unknown) {
+      return 0;
+    }
+  });
+
+  const handleShapeClick = (newShape: Shape) => {
+    setShape(newShape);
+  }
+  const handleResetShape = () => {
+    setShape(null);
+  }
+  const handleGameWin = () => {
+    setScore(score => score + 1);
+  }
+  const handleGameLose = () => {
+    setScore(score => score === 0 ? 0 : score - 1);
+  }
+
+  useEffect(() => {
+    localStorage.setItem('score', score.toString());
+  }, [score]);
+
   return (
     <main className='page'>
       <header className='header'>
@@ -15,50 +43,22 @@ const App = () => {
         />
         <div className='scoreboard'>
           <span className='scoreboard__text'>SCORE</span>
-          <span className='scoreboard__number'>12</span>
+          <span className='scoreboard__number'>{score}</span>
         </div>
       </header>
-      <div className='shapes'>
-        <button
-          type='button'
-          title='Paper'
-          className='shape__container shape__container--blue shape__container--top-left'
-        >
-          <div className='shape__background'>
-            <img 
-              src={Paper}
-              alt='paper'
-              className='shape__logo'
-            />
-          </div>
-        </button>
-        <button
-          type='button'
-          title='Scissors'
-          className='shape__container shape__container--gold shape__container--top-right'
-        >
-          <div className='shape__background'>
-            <img 
-              src={Scissors}
-              alt='scissors'
-              className='shape__logo'
-            />
-          </div>
-        </button>
-        <button
-          type='button'
-          title='Rock'
-          className='shape__container shape__container--red shape__container--bottom-middle'
-        >
-          <div className='shape__background'>
-            <img 
-              src={Rock}
-              alt='rock'
-              className='shape__logo'
-            />
-          </div>
-        </button>
-      </div>
+      {
+        shape ?
+        <GameResult 
+          shape={shape}
+          onPlayAgain={handleResetShape}
+          onGameWin={handleGameWin}
+          onGameLose={handleGameLose}
+        />
+        :
+        <ShapeTriangle 
+          onShapeClick={handleShapeClick}
+        />
+      }
       <button
         type='button'
         title='Rules'
