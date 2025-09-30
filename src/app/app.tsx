@@ -48,27 +48,29 @@ const App = () => {
           <span className='scoreboard__number'>{score}</span>
         </div>
       </header>
-      {
-        shape ?
-        <GameResult 
-          shape={shape}
-          onPlayAgain={handleResetShape}
-          onGameWin={handleGameWin}
-          onGameLose={handleGameLose}
-        />
-        :
-        <ShapeTriangle 
-          onShapeClick={handleShapeClick}
-        />
-      }
-      <button
-        type='button'
-        title='Rules'
-        className='rules'
-        onClick={() => setRulesOpen(true)}
-      >
-        RULES
-      </button>
+      <div className='shape__wrapper'>
+        {
+          shape ?
+          <GameResult 
+            shape={shape}
+            onPlayAgain={handleResetShape}
+            onGameWin={handleGameWin}
+            onGameLose={handleGameLose}
+          />
+          :
+          <ShapeTriangle 
+            onShapeClick={handleShapeClick}
+          />
+        }
+        <button
+          type='button'
+          title='Rules'
+          className='rules'
+          onClick={() => setRulesOpen(true)}
+        >
+          RULES
+        </button>
+      </div>
       <Rules 
         isOpen={rulesOpen}
         onClose={() => setRulesOpen(false)}

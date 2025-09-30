@@ -1,8 +1,10 @@
 .shapes {
+    align-self: center;
     position: relative;
     aspect-ratio: 313/278;
     width: 550px;
     margin-top: 80px;
+    margin-bottom: 20px;
     position: relative;
     @media screen and (max-width: 375px) {
         width: 100%;
