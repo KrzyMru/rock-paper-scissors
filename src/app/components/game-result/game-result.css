@@ -75,13 +75,11 @@
     max-width: 0;
     transition: max-width 1s ease;
     pointer-events: none;
-    @media screen and (max-width: 371px) {
-        margin-bottom: 150px;
-    }
     @media screen and (max-width: 768px) {
         order: 3;
         width: 100%;
         max-width: 100%;
+        margin-bottom: 150px;
     }
 }
 .result--visible {

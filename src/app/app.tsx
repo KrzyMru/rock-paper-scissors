@@ -4,6 +4,7 @@ import ShapeTriangle from './components/shape-triangle/shape-triangle';
 import { useEffect, useState } from 'react';
 import type { Shape } from './types';
 import GameResult from './components/game-result/game-result';
+import Rules from './components/rules/rules';
 
 const App = () => {
   const [shape, setShape] = useState<Shape|null>(null);
@@ -15,6 +16,7 @@ const App = () => {
       return 0;
     }
   });
+  const [rulesOpen, setRulesOpen] = useState<boolean>(false);
 
   const handleShapeClick = (newShape: Shape) => {
     setShape(newShape);
@@ -63,9 +65,14 @@ const App = () => {
         type='button'
         title='Rules'
         className='rules'
+        onClick={() => setRulesOpen(true)}
       >
         RULES
       </button>
+      <Rules 
+        isOpen={rulesOpen}
+        onClose={() => setRulesOpen(false)}
+      />
     </main>
   )
 }
