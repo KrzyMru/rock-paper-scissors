@@ -1,5 +1,6 @@
 .results {
     margin-top: 60px;
+    margin-bottom: 60px;
     display: flex;
     flex-wrap: nowrap;
     gap: 10px;
@@ -79,7 +80,6 @@
         order: 3;
         width: 100%;
         max-width: 100%;
-        margin-bottom: 150px;
     }
 }
 .result--visible {
